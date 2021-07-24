@@ -1,0 +1,20 @@
+
+POST	api/carrental/v1/customer/register		controllers.CustomerController.register    		RegisterRequest/RegisterResponse
+POST	api/carrental/v1/customer/login			controllers.CustomerController.login     		LoginRequest/LoginResponse
+
+-- All Below need to be authenticate
+GET		api/carrental/v1/user/details			controllers.CustomerController.details     		DetailsResponse
+
+GET		api/carrental/v1/cars/list				controllers.CarController.listCars			ListCarsResponse
+POST	api/carrental/v1/cars/calculate			controllers.CarController.calculate     	CalculateRequest/CalculateResponse
+POST	api/carrental/v1/cars/rent				controllers.CarController.rent     			RentRequest/RentResponse
+POST	api/carrental/v1/cars/return			controllers.CarController.return        	ReturnRequest/ReturnResponse
+
+-- All Below should use admin secret 
+
+POST	api/carrental/v1/admin/car/add			controllers.AdminController.addCar 				AdminAddCarRequest
+POST	api/carrental/v1/admin/car/remove		controllers.AdminController.removeCar 			AdminRemoveCarRequest
+POST	api/carrental/v1/admin/car/maintenance	controllers.AdminController.MainenanceCar		AdminMaintenanceRequest
+
+POST	api/carrental/v1/admin/customer/remove	controllers.AdminController.RemoveCustomer		AdminCustomerRequest
+POST	api/carrental/v1/admin/customer/block	controllers.AdminController.BlockCustomer		AdminCustomerRequest

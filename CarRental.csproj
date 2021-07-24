@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Docs\" />
+    <None Remove="Models\" />
+    <None Remove="Models\Customer\" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Configs\" />
+    <None Remove="helper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Docs\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Customer\" />
+    <Folder Include="Configs\" />
+    <Folder Include="helper\" />
+  </ItemGroup>
+</Project>
