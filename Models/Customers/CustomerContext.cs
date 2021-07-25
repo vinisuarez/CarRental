@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-namespace CarRental.Models.Customer
+namespace CarRental.Models.Customers
 {
     public class CustomerContext : DbContext
     {

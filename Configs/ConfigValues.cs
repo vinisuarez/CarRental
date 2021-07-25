@@ -15,5 +15,11 @@
 
         public const int SuvDaysForDiscount = 3;
         public const int SuvDiscountPercentile = 30;
+
+
+        // in the real application those should not be in code but inject in the
+        // build time. For instance from AWS secret manager
+        public const string JwtSecret = "c@rRent@lSuperSecret";
+        public const string AdminSecret = "c@rRent@lSuperAdminSecret";
     }
 }

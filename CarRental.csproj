@@ -6,8 +6,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.8" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.8" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,12 +19,32 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Configs\" />
     <None Remove="helper\" />
+    <None Remove="Handlers\" />
+    <None Remove="Models\Api\" />
+    <None Remove="Models\Api\Requests\" />
+    <None Remove="Models\Api\Responses\" />
+    <None Remove="Services\" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Microsoft.VisualStudio.UnitTesting" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Models\Rent\" />
+    <None Remove="Models\Fleet\" />
+    <None Remove="Models\Car\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Docs\" />
     <Folder Include="Models\" />
-    <Folder Include="Models\Customer\" />
+    <Folder Include="Models\Customers\" />
     <Folder Include="Configs\" />
-    <Folder Include="helper\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Models\Api\" />
+    <Folder Include="Models\Api\Requests\" />
+    <Folder Include="Models\Api\Responses\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\Rents\" />
+    <Folder Include="Models\Cars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Tests\Services\JwtServiceTest.cs" />
   </ItemGroup>
 </Project>

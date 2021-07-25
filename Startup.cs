@@ -1,4 +1,6 @@
-﻿using CarRental.Models.Customer;
+﻿using CarRental.Models.Cars;
+using CarRental.Models.Customers;
+using CarRental.Models.Rents;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,9 +26,38 @@ namespace CarRental
 
             services.AddControllers();
             services.AddDbContext<CustomerContext>(opt => opt.UseInMemoryDatabase("Customer"));
+            services.AddDbContext<RentContext>(opt => opt.UseInMemoryDatabase("Rent"));
+            services.AddDbContext<CarContext>(opt => opt.UseInMemoryDatabase("Car"));
+            services.AddScoped<CarContext>();
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRental", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                 {
+                     Name = "Authorization",
+                     Type = SecuritySchemeType.ApiKey,
+                     Scheme = "Bearer",
+                     BearerFormat = "JWT",
+                     In = ParameterLocation.Header,
+                     Description = "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
+                 });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                          new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+                                }
+                            },
+                            new string[] {}
+
+                    }
+                });
             });
         }
 
@@ -43,7 +74,7 @@ namespace CarRental
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

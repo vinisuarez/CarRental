@@ -1,6 +1,9 @@
 ﻿using System.Threading.Tasks;
-using CarRental.helper;
-using CarRental.Models.Customer;
+using CarRental.Handlers;
+using CarRental.Models.Api.Requests;
+using CarRental.Models.Api.Responses;
+using CarRental.Models.Customers;
+using CarRental.Models.Rents;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRental.Controllers
@@ -9,26 +12,22 @@ namespace CarRental.Controllers
     public class CustomerController : Controller
     {
         private readonly CustomerContext _context;
+        private readonly RentContext _rentContext;
 
-        public CustomerController(CustomerContext context)
+        public CustomerController(CustomerContext context, RentContext rentContext)
         {
             _context = context;
+            _rentContext = rentContext;
         }
 
         [Route("register")]
         [HttpPost]
-        public async Task<ActionResult<Customer>> Register([FromBody] Customer customer)
+        public async Task<ActionResult<bool>> Register([FromBody] RegisterRequest request)
         {
-            var customerFind = await _context.Customers.FindAsync(customer.UserName);
-
-            if (customerFind == null)
+            var registerHandler = new RegisterHandler(_context);
+            if (await registerHandler.Handle(request))
             {
-                var salt = PasswordHelper.GenerateSalt();
-                customer.Salt = salt;
-                customer.Password = PasswordHelper.HashPassword(customer.Password, salt);
-                _context.Customers.Add(customer);
-                await _context.SaveChangesAsync();
-                return customer;
+                return true;
             }
             else
             {
@@ -38,33 +37,50 @@ namespace CarRental.Controllers
 
         [Route("login")]
         [HttpPost]
-        public async Task<ActionResult<Customer>> Login([FromBody] Customer customer)
+        public async Task<ActionResult<LoginResponse>> Login([FromBody] LoginRequest request)
         {
-            var customerFind = await _context.Customers.FindAsync(customer.UserName);
-
-            if (customerFind != null)
+            var loginHandler = new LoginHandler(_context);
+            LoginResponse loginResponse = await loginHandler.Handle(request);
+            if (loginResponse != null)
             {
-                var hashedPassword = PasswordHelper.HashPassword(customer.Password, customerFind.Salt);
-
-                if (hashedPassword.Equals(customerFind.Password)) 
-                {
-                    return customer;
-                }
-                else
-                {
-                    return BadRequest();
-                }
+                return loginResponse;
             }
             else
             {
-                return NotFound();
+                return BadRequest();
             }
         }
 
         [Route("details")]
-        [HttpPost]
-        public void Details([FromBody] string value)
+        [HttpGet]
+        public async Task<ActionResult<DetailsResponse>> Details()
         {
+            var detailHandler = new DetailsHandler(_context, Request);
+            DetailsResponse detailsResponse = await detailHandler.Handle();
+            if (detailsResponse != null)
+            {
+                return detailsResponse;
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        [Route("rentHistory")]
+        [HttpGet]
+        public async Task<ActionResult<RentHistoryResponse>> RentHistory()
+        {
+            var rentHistoryHandler = new RentHistoryHandler(_context, Request, _rentContext);
+            RentHistoryResponse rentHistoryResponse = await rentHistoryHandler.Handle();
+            if (rentHistoryResponse != null)
+            {
+                return rentHistoryResponse;
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

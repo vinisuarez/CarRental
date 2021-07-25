@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "jPyyNH66gVuiXa3I9heZg4yDjkvAwJ2f3BBpReNNCupQHJ20Lv6L/mwDXJ+wdt8A6Olruv0H6SFMu+yAgOSPgA==",
+  "dgSpecHash": "Mn5QOvZ0ydaLnN3/WssmcO9e8EVuLQJlhIFTrhXkYg0zOgrRLp4A0P7YkQGrIcWVDuQqb9rO/3WgpDqW25lV7Q==",
   "success": true,
   "projectFilePath": "/Users/vinisuarez/workspace/dotnet/CarRental/CarRental/CarRental.csproj",
   "expectedPackageFiles": [
+    "/Users/vinisuarez/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/5.0.8/microsoft.aspnetcore.authentication.jwtbearer.5.0.8.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/Users/vinisuarez/.nuget/packages/microsoft.entityframeworkcore/5.0.8/microsoft.entityframeworkcore.5.0.8.nupkg.sha512",
     "/Users/vinisuarez/.nuget/packages/microsoft.entityframeworkcore.abstractions/5.0.8/microsoft.entityframeworkcore.abstractions.5.0.8.nupkg.sha512",
     "/Users/vinisuarez/.nuget/packages/microsoft.entityframeworkcore.analyzers/5.0.8/microsoft.entityframeworkcore.analyzers.5.0.8.nupkg.sha512",
@@ -17,14 +19,21 @@
     "/Users/vinisuarez/.nuget/packages/microsoft.extensions.logging.abstractions/5.0.0/microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "/Users/vinisuarez/.nuget/packages/microsoft.extensions.options/5.0.0/microsoft.extensions.options.5.0.0.nupkg.sha512",
     "/Users/vinisuarez/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/microsoft.identitymodel.jsonwebtokens/6.12.0/microsoft.identitymodel.jsonwebtokens.6.12.0.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/microsoft.identitymodel.logging/6.12.0/microsoft.identitymodel.logging.6.12.0.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/microsoft.identitymodel.protocols/6.7.1/microsoft.identitymodel.protocols.6.7.1.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.7.1/microsoft.identitymodel.protocols.openidconnect.6.7.1.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/microsoft.identitymodel.tokens/6.12.0/microsoft.identitymodel.tokens.6.12.0.nupkg.sha512",
     "/Users/vinisuarez/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
-    "/Users/vinisuarez/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "/Users/vinisuarez/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
-    "/Users/vinisuarez/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
-    "/Users/vinisuarez/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/swashbuckle.aspnetcore/6.1.4/swashbuckle.aspnetcore.6.1.4.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/swashbuckle.aspnetcore.swagger/6.1.4/swashbuckle.aspnetcore.swagger.6.1.4.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.1.4/swashbuckle.aspnetcore.swaggergen.6.1.4.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.1.4/swashbuckle.aspnetcore.swaggerui.6.1.4.nupkg.sha512",
     "/Users/vinisuarez/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
     "/Users/vinisuarez/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "/Users/vinisuarez/.nuget/packages/system.diagnostics.diagnosticsource/5.0.1/system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+    "/Users/vinisuarez/.nuget/packages/system.diagnostics.diagnosticsource/5.0.1/system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/system.identitymodel.tokens.jwt/6.12.0/system.identitymodel.tokens.jwt.6.12.0.nupkg.sha512",
+    "/Users/vinisuarez/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

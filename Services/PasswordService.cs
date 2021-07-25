@@ -2,9 +2,9 @@
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
-namespace CarRental.helper
+namespace CarRental.Services
 {
-    public class PasswordHelper
+    public class PasswordService
     {
         public static string GenerateSalt()
         {
