@@ -20,6 +20,6 @@
         // in the real application those should not be in code but inject in the
         // build time. For instance from AWS secret manager
         public const string JwtSecret = "c@rRent@lSuperSecret";
-        public const string AdminSecret = "c@rRent@lSuperAdminSecret";
+        public const string AdminSecret = "duH5g4FA+1FpAaEzBZoXew==";
     }
 }

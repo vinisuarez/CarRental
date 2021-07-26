@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CarRental.Models.Rents
 {
@@ -10,6 +9,6 @@ namespace CarRental.Models.Rents
         public string CarId { get; set; }
         public DateTime StartAt { get; set; }
         public DateTime EndAt { get; set; }
-        public List<Transaction> TransactionLogs { get; set; }
+        public bool Returned { get; set; }
     }
 }

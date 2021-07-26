@@ -11,14 +11,16 @@ namespace CarRental.Handlers
     {
         protected CustomerContext _context;
         protected HttpRequest _request;
+        protected Task<Customer> loadCustomer;
 
         public AuthorizationNeededHandler(CustomerContext context, HttpRequest request)
         {
             _context = context;
             _request = request;
+            loadCustomer = GetCustomerAsync();
         }
 
-        public async Task<Customer> GetCustomerAsync()
+        private async Task<Customer> GetCustomerAsync()
         {
             var token = _request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
             if (token == null)

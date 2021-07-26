@@ -1,6 +1,7 @@
 ﻿using CarRental.Models.Cars;
 using CarRental.Models.Customers;
 using CarRental.Models.Rents;
+using CarRental.Models.Transactions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +29,7 @@ namespace CarRental
             services.AddDbContext<CustomerContext>(opt => opt.UseInMemoryDatabase("Customer"));
             services.AddDbContext<RentContext>(opt => opt.UseInMemoryDatabase("Rent"));
             services.AddDbContext<CarContext>(opt => opt.UseInMemoryDatabase("Car"));
-            services.AddScoped<CarContext>();
+            services.AddDbContext<TransactionContext>(opt => opt.UseInMemoryDatabase("Transaction"));
 
 
             services.AddSwaggerGen(c =>

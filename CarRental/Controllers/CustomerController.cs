@@ -4,6 +4,7 @@ using CarRental.Models.Api.Requests;
 using CarRental.Models.Api.Responses;
 using CarRental.Models.Customers;
 using CarRental.Models.Rents;
+using CarRental.Models.Transactions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRental.Controllers
@@ -13,11 +14,13 @@ namespace CarRental.Controllers
     {
         private readonly CustomerContext _context;
         private readonly RentContext _rentContext;
+        private readonly TransactionContext _transactionContext;
 
-        public CustomerController(CustomerContext context, RentContext rentContext)
+        public CustomerController(CustomerContext context, RentContext rentContext, TransactionContext transactionContext)
         {
             _context = context;
             _rentContext = rentContext;
+            _transactionContext = transactionContext;
         }
 
         [Route("register")]
@@ -71,7 +74,7 @@ namespace CarRental.Controllers
         [HttpGet]
         public async Task<ActionResult<RentHistoryResponse>> RentHistory()
         {
-            var rentHistoryHandler = new RentHistoryHandler(_context, Request, _rentContext);
+            var rentHistoryHandler = new RentHistoryHandler(_context, Request, _rentContext, _transactionContext);
             RentHistoryResponse rentHistoryResponse = await rentHistoryHandler.Handle();
             if (rentHistoryResponse != null)
             {

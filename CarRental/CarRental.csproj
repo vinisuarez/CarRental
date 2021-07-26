@@ -32,6 +32,10 @@
     <None Remove="Models\Fleet\" />
     <None Remove="Models\Car\" />
     <None Remove="EntityFramework" />
+    <None Remove="Models\Api\Requests\admin\" />
+    <None Remove="Handlers\admin\" />
+    <None Remove="Gateway\" />
+    <None Remove="Models\Transactions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Docs\" />
@@ -45,6 +49,10 @@
     <Folder Include="Services\" />
     <Folder Include="Models\Rents\" />
     <Folder Include="Models\Cars\" />
+    <Folder Include="Models\Api\Requests\admin\" />
+    <Folder Include="Handlers\admin\" />
+    <Folder Include="Gateway\" />
+    <Folder Include="Models\Transactions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Tests\Services\JwtServiceTest.cs" />

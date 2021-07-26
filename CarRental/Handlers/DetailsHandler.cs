@@ -14,15 +14,15 @@ namespace CarRental.Handlers
 
         public async Task<DetailsResponse> Handle()
         {
-            var customerFind = await GetCustomerAsync();
-            if (customerFind != null)
+            var customer = await loadCustomer;
+            if (customer != null)
             {
                 return new DetailsResponse
                 {
-                    Email = customerFind.Email,
-                    Address = customerFind.Address,
-                    CreateAt = customerFind.CreateAt,
-                    Bonus = customerFind.Bonus,
+                    Email = customer.Email,
+                    Address = customer.Address,
+                    CreateAt = customer.CreateAt,
+                    Bonus = customer.Bonus,
                 };
             }
             else

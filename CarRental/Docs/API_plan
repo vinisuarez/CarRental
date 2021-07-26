@@ -6,7 +6,6 @@ POST	api/carrental/v1/customer/login			controllers.CustomerController.Login     
 GET		api/carrental/v1/user/details			controllers.CustomerController.Details     		DetailsResponse
 GET		api/carrental/v1/user/rentHistory		controllers.CustomerController.RentHistory     	RentHistoryResponse
 
-
 GET		api/carrental/v1/cars/list				controllers.CarController.ListCars			    ListCarsResponse
 POST	api/carrental/v1/cars/calculate			controllers.CarController.Calculate     	    CalculateRequest/CalculateResponse
 POST	api/carrental/v1/cars/rent				controllers.CarController.Rent     			    RentRequest/RentResponse
@@ -15,8 +14,8 @@ POST	api/carrental/v1/cars/return			controllers.CarController.Return        	   
 -- All Below should use admin secret 
 
 POST	api/carrental/v1/admin/car/add			controllers.AdminController.AddCar 				AdminAddCarRequest
-POST	api/carrental/v1/admin/car/remove		controllers.AdminController.RemoveCar 			AdminRemoveCarRequest
-POST	api/carrental/v1/admin/car/maintenance	controllers.AdminController.MainenanceCar		AdminMaintenanceRequest
+POST	api/carrental/v1/admin/car/remove		controllers.AdminController.RemoveCar 			AdminCarRequest
+POST	api/carrental/v1/admin/car/maintenance	controllers.AdminController.MainenanceCar		AdminCarRequest
 
-POST	api/carrental/v1/admin/customer/remove	controllers.AdminController.RemoveCustomer		AdminCustomerRequest
 POST	api/carrental/v1/admin/customer/block	controllers.AdminController.BlockCustomer		AdminCustomerRequest
+POST	api/carrental/v1/admin/customer/unblock	controllers.AdminController.UnblockCustomer		AdminCustomerRequest

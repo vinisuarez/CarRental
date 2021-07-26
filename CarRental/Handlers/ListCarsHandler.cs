@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Data.Entity;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CarRental.Models.Api.Responses;
 using CarRental.Models.Cars;
 using CarRental.Models.Customers;
 using CarRental.Models.Rents;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarRental.Handlers
 {
@@ -25,8 +25,8 @@ namespace CarRental.Handlers
 
         public async Task<ListCarsResponse> Handle()
         {
-            var customerFind = await GetCustomerAsync();
-            if (customerFind != null)
+            var customer = await loadCustomer;
+            if (customer != null)
             {
                 List<PublicCar> publicCars = new();
                 List<Car> cars = await _carContext.Cars.ToListAsync();
@@ -43,10 +43,10 @@ namespace CarRental.Handlers
                         IsMaintenance = car.InMaintenance
                     };
 
-                    if (!String.IsNullOrEmpty(car.RentId))
-                    {
-                        var rent = await _rentContext.Rents.FindAsync(car.RentId);
 
+                    var rent = await _rentContext.FindActiveForCar(car.Id);
+                    if (rent != null)
+                    {
                         publicCar.IsRented = true;
                         publicCar.RentEnd = rent.EndAt;
                     }
