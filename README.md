@@ -15,4 +15,4 @@ Comments about the task:
 
 Was nice to dive in a new languange and try out c#, probably there can be some newbie mistakes - sorry in advance :)
 
-I tried and fail to add unit tests to project, 
+Some unit test can be found in the CarRentalTest project.
